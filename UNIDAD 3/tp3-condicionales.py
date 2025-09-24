@@ -60,7 +60,7 @@ elif media < mediana < moda:
 else:
     print("Sin sesgo")
 
-#Creo que en una parte de los apuntes se menciona la libreria statistics, pero por las dudas... preparé adicionalmente una version
+#Creo que en una parte de los apuntes (y en la consigna) se menciona la libreria statistics, pero por las dudas... preparé adicionalmente una version
 #"manual" sin el uso de la librería. Fue mucho mas dificil de lo que pensaba.
 
 # Ejercicio 6
