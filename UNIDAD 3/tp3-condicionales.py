@@ -60,6 +60,58 @@ elif media < mediana < moda:
 else:
     print("Sin sesgo")
 
+#Creo que en una parte de los apuntes se menciona la libreria statistics, pero por las dudas... preparé adicionalmente una version
+#"manual" sin el uso de la librería. Fue mucho mas dificil de lo que pensaba.
+
+# Ejercicio 6
+import random
+
+# Generamos la lista de números aleatorios
+numeros_aleatorios = [random.randint(1, 100) for i in range(50)]
+print("Lista:", numeros_aleatorios)
+
+# ---- Calcular la MEDIA ----
+suma = 0
+for n in numeros_aleatorios:
+    suma += n
+media = suma / len(numeros_aleatorios)
+
+# ---- Calcular la MEDIANA ----
+# Ordenamos la lista
+ordenada = sorted(numeros_aleatorios)
+n = len(ordenada)
+if n % 2 == 0:  # cantidad par
+    mediana = (ordenada[n//2 - 1] + ordenada[n//2]) / 2
+else:           # cantidad impar
+    mediana = ordenada[n//2]
+
+# ---- Calcular la MODA
+max_frecuencia = 0
+moda = ordenada[0]
+
+for i in range(n):
+    contador = 0
+    for j in range(n):
+        if ordenada[i] == ordenada[j]:
+            contador += 1
+    if contador > max_frecuencia:
+        max_frecuencia = contador
+        moda = ordenada[i]
+
+# ---- Mostrar resultados ----
+print("Media:", media)
+print("Mediana:", mediana)
+print("Moda:", moda)
+
+# ---- Determinar el sesgo ----
+if media > mediana > moda:
+    print("Sesgo positivo")
+elif media < mediana < moda:
+    print("Sesgo negativo")
+else:
+    print("Sin sesgo")
+
+
 
 # 7) String terminado en vocal
 texto = input("Ingrese una palabra o frase: ")
@@ -100,7 +152,7 @@ else:
     print("Extremo (puede causar graves daños a gran escala)")
 
 
-# 10) Estaciones del año según hemisferio
+# 10) Estaciones del año según nuestro hemisferio
 mes = int(input("Ingrese el mes (1-12): "))
 dia = int(input("Ingrese el día: "))
 hemisferio = input("Ingrese su hemisferio (N/S): ").upper()
