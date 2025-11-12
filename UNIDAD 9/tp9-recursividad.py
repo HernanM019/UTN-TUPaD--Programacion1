@@ -78,7 +78,7 @@ def contar_digito(numero, digito):
 
 def menu():
     while True:
-        print("\n===== MENÚ PRINCIPAL - TP7: RECURSIVIDAD =====")
+        print("\n===== MENÚ PRINCIPAL - TP9: RECURSIVIDAD =====")
         print("1. Factorial de un número")
         print("2. Serie de Fibonacci")
         print("3. Potencia recursiva")
@@ -132,7 +132,7 @@ def menu():
                 print(f"El dígito {dig} aparece {contar_digito(num, dig)} veces.")
 
             case "9":
-                print("\n👋 Saliendo del programa...")
+                print("\n Saliendo del programa...")
                 break
 
             case _:
