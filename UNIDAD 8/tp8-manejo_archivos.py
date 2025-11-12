@@ -1,17 +1,13 @@
 # ------------------------------------------
 # TP UNIDAD 8 - MANEJO DE ARCHIVOS
 # ------------------------------------------
-# Programa con menú para gestionar productos
-# usando archivos de texto en Python.
-# Incluye validación de duplicados.
-# ------------------------------------------
 
 ARCHIVO = "productos.txt"
 
 # --- Funciones auxiliares ---
 
 def crear_archivo_inicial():
-    """Crea el archivo productos.txt con datos base (solo una vez)."""
+    # Crea el archivo productos.txt con datos base (solo una vez).
     with open(ARCHIVO, "w") as archivo:
         archivo.writelines([
             "Lapicera,120.5,30\n",
@@ -22,7 +18,7 @@ def crear_archivo_inicial():
 
 
 def leer_productos():
-    """Lee los productos del archivo y devuelve una lista de diccionarios."""
+    #Lee los productos del archivo y devuelve una lista de diccionarios.
     productos = []
     try:
         with open(ARCHIVO, "r") as archivo:
@@ -39,7 +35,7 @@ def leer_productos():
 
 
 def mostrar_productos(productos):
-    """Muestra los productos en pantalla."""
+    # Muestra los productos en pantalla.
     if not productos:
         print("\nNo hay productos para mostrar.")
         return
@@ -49,7 +45,7 @@ def mostrar_productos(productos):
 
 
 def agregar_producto(productos):
-    """Agrega un nuevo producto si no existe ya en la lista."""
+    # Agrega un nuevo producto si no existe ya en la lista."""
     nombre = input("Nombre: ").capitalize()
 
     # Verificar duplicado por nombre
