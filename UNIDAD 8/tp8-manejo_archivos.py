@@ -66,7 +66,7 @@ def agregar_producto(productos):
 
 
 def buscar_producto(productos):
-    """Busca un producto por nombre y lo muestra si existe."""
+    # Busca un producto por nombre y lo muestra si existe.
     nombre = input("Ingrese el nombre del producto a buscar: ").capitalize()
     for p in productos:
         if p["nombre"] == nombre:
@@ -76,7 +76,7 @@ def buscar_producto(productos):
 
 
 def guardar_productos(productos):
-    """Guarda todos los productos en el archivo (sobrescribe)."""
+    #Guarda todos los productos en el archivo (sobrescribe).
     with open(ARCHIVO, "w") as archivo:
         for p in productos:
             linea = f"{p['nombre']},{p['precio']},{p['cantidad']}\n"
