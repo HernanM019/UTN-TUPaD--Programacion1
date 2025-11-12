@@ -1,6 +1,10 @@
 # ------------------------------------------
 # TP UNIDAD 8 - MANEJO DE ARCHIVOS
 # ------------------------------------------
+# Programa con menú para gestionar productos
+# usando archivos de texto en Python.
+# Incluye validación de duplicados.
+# ------------------------------------------
 
 ARCHIVO = "productos.txt"
 
@@ -45,10 +49,18 @@ def mostrar_productos(productos):
 
 
 def agregar_producto(productos):
-    """Agrega un nuevo producto a la lista."""
+    """Agrega un nuevo producto si no existe ya en la lista."""
     nombre = input("Nombre: ").capitalize()
+
+    # Verificar duplicado por nombre
+    for p in productos:
+        if p["nombre"] == nombre:
+            print(f"\n El producto '{nombre}' ya existe. No se agregó un duplicado.")
+            return  # Salir sin agregar
+
     precio = float(input("Precio: "))
     cantidad = int(input("Cantidad: "))
+
     productos.append({
         "nombre": nombre,
         "precio": precio,
@@ -73,7 +85,7 @@ def guardar_productos(productos):
         for p in productos:
             linea = f"{p['nombre']},{p['precio']},{p['cantidad']}\n"
             archivo.write(linea)
-    print("\n💾 Cambios guardados correctamente.")
+    print("\n Cambios guardados correctamente.")
 
 
 # --- Programa principal ---
@@ -105,10 +117,13 @@ def menu():
             case "5":
                 guardar_productos(productos)
             case "6":
-                print("\nSaliendo del programa...")
+                # Guardar automáticamente antes de salir
+                guardar_productos(productos)
+                print("\n Saliendo del programa...")
                 break
             case _:
                 print("\nOpción inválida. Intente nuevamente.")
 
 
+# --- Ejecución del programa ---
 menu()
